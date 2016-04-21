@@ -1,1 +1,10 @@
-<h1><%= @film.title %></h1>
+<article class="film-details">
+    <section class="crawl">
+        <header>
+            <h1><%= @film.title %></h1>
+        </header>
+        <div class="centered-block">
+            <%= simple_format(@film.opening_crawl) %>
+        </div>
+    </section>
+</article>

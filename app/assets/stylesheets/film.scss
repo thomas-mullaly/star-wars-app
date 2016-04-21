@@ -1,3 +1,25 @@
 // Place all the styles related to the film controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.film-details {
+    h1 {
+        margin: 0;
+        padding: .5em .5em;
+        color: white;
+        text-align: center;
+    }
+    .crawl {
+        color: yellow;
+        background: black url('/assets/crawl.jpg');
+        width: 100%;
+        min-height: 30em;
+        padding-bottom: 1em;
+
+        p {
+            text-align: center;
+            line-height: 1;
+            font-size: 2em;
+        }
+    }
+}

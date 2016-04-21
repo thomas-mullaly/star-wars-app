@@ -14,7 +14,7 @@
  *= require_self
  */
 
-.page-content {
+.centered-block {
     max-width: 970px;
     margin: 0 auto;
 }
