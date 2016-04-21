@@ -12,13 +12,20 @@
         <header>
             <h2>Details</h2>
         </header>
-        <dl>
-            <dt>Director(s)</dt>
-            <dd><%= @film.director %></dd>
-            <dt>Producer(s)</dt>
-            <dd><%= @film.producer %></dd>
-            <dt>Release Date</dt>
-            <dd><%= @film.release_date %></dd>
-        </dl>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--5-col">
+                <img class="film-cover" src="/assets/episode-<%= @film.episode_id %>.jpg" />
+            </div>
+            <div class="mdl-cell mdl-cell--5-col">
+                <dl>
+                    <dt>Director(s)</dt>
+                    <dd><%= @film.director %></dd>
+                    <dt>Producer(s)</dt>
+                    <dd><%= @film.producer %></dd>
+                    <dt>Release Date</dt>
+                    <dd><%= @film.release_date %></dd>
+                </dl>
+            </div>
+        </div>
     </section>
 </article>
