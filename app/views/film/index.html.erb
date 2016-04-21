@@ -7,4 +7,18 @@
             <%= simple_format(@film.opening_crawl) %>
         </div>
     </section>
+
+    <section class="centered-block details">
+        <header>
+            <h2>Details</h2>
+        </header>
+        <dl>
+            <dt>Director(s)</dt>
+            <dd><%= @film.director %></dd>
+            <dt>Producer(s)</dt>
+            <dd><%= @film.producer %></dd>
+            <dt>Release Date</dt>
+            <dd><%= @film.release_date %></dd>
+        </dl>
+    </section>
 </article>
