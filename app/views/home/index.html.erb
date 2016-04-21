@@ -1,25 +1,9 @@
 <div class="mdl-grid films">
-    <div class="mdl-cell mdl-card mdl-shadow--4dp film film-1">
-        <a href="/film/1">
-            <img src="/assets/episode-1.jpg" />
-        </a>
-    </div>
-    <div class="mdl-cell mdl-card mdl-shadow--4dp film film-1">
-
-    </div>
-    <div class="mdl-cell mdl-card mdl-shadow--4dp film film-1">
-
-    </div>
-    <div class="mdl-cell mdl-card mdl-shadow--4dp film film-1">
-
-    </div>
-    <div class="mdl-cell mdl-card mdl-shadow--4dp film film-1">
-
-    </div>
-    <div class="mdl-cell mdl-card mdl-shadow--4dp film film-1">
-
-    </div>
-    <div class="mdl-cell mdl-card mdl-shadow--4dp film film-1">
-
-    </div>
+    <% @films.each do |film| %>
+        <div class="mdl-cell mdl-card mdl-shadow--4dp film">
+            <a href="/film/1">
+                <img src="/assets/episode-<%= film.episode_id %>.jpg" />
+            </a>
+        </div>
+    <% end %>
 </div>
