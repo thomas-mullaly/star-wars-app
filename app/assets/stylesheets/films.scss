@@ -1,0 +1,11 @@
+.films {
+    .film {
+        width: 300px;
+        height: 450px;
+    }
+
+    .film > a > img {
+        height: 100%;
+        width: 100%;
+    }
+}

@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.page-content {
+    max-width: 970px;
+    margin: 0 auto;
+}
+
+.mdl-layout__container {
+    height: auto;
+}
