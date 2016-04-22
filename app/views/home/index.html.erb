@@ -1,7 +1,7 @@
 <div class="mdl-grid films centered-block">
     <% @films.each do |film| %>
         <div class="mdl-cell mdl-card mdl-shadow--4dp film">
-            <a href="/film/<%= film.episode_id %>">
+            <a href="/film/<%= parse_film_id(film.url) %>">
                 <img src="/assets/episode-<%= film.episode_id %>.jpg" />
             </a>
         </div>
