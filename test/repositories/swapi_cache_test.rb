@@ -63,4 +63,13 @@ class SwapiCacheTest < ActiveSupport::TestCase
             assert_not_nil filmCache
         end
     end
+
+    test "should find film by id" do
+        VCR.use_cassette "swapi cache tests" do
+            film = @cache.film 1
+
+            assert_equal "A New Hope", film.title
+            assert_equal 4, film.episode_id
+        end
+    end
 end

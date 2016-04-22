@@ -43,6 +43,12 @@ class SwapiCache
         @@films_cache
     end
 
+    def film(id)
+        films if @@films_cache == nil
+
+        films.find { |f| URI(f.url).path.split("/").last.to_i == id }
+    end
+
     def get(url)
         JSON.parse @connection.get(url).body, object_class: OpenStruct
     end
