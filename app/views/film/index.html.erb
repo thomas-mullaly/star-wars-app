@@ -35,19 +35,19 @@
         </header>
 
         <div class="mdl-grid centered-block">
-            <% @film.characters.each do |people| %>
+            <% @characters.each do |person| %>
                 <div class="mdl-cell mdl-card mdl-shadow--4dp character">
                     <div class="mdl-card__title">
-                        <h4><%= people.name %></h4>
+                        <h4><%= person.name %></h4>
                     </div>
                     <div class="mdl-card__supporting-text">
                         <dl>
                             <dt>Born</dt>
-                            <dd><%= people.birth_year %></dd>
+                            <dd><%= person.birth_year %></dd>
                             <dt>Hair color</dt>
-                            <dd><%= people.hair_color %></dd>
+                            <dd><%= person.hair_color %></dd>
                             <dt>Height</dt>
-                            <dd><%= people.height %></dd>
+                            <dd><%= person.height %></dd>
                         </dl>
                     </div>
                 </div>
