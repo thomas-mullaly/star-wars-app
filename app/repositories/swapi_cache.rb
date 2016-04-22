@@ -2,6 +2,8 @@ class SwapiCache
     BASE_URL = 'http://swapi.co/api/'
 
     @@people_cache = nil
+    @@films_cache = nil
+
     def initialize
         @connection = Faraday.new BASE_URL do |faraday|
             faraday.request :url_encoded
@@ -13,7 +15,7 @@ class SwapiCache
         if @@people_cache == nil then
             res = get("people/")
 
-            @@people_cache = res.results
+            @@people_cache = res.results.map { |c| OpenStruct.new c }
 
             until res.next.blank? do
                 res = get res.next
@@ -23,6 +25,22 @@ class SwapiCache
         end
 
         @@people_cache
+    end
+
+    def films
+        if @@films_cache == nil then
+            res = get("films/")
+
+            @@films_cache = res.results
+
+            until res.next.blank? do
+                res = get res.next
+
+                @@films_cache.concat res.results.map { |f| OpenStruct.new f }
+            end
+        end
+
+        @@films_cache
     end
 
     def get(url)
