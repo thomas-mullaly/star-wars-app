@@ -1,5 +1,4 @@
 require 'swapi_cache'
-require 'vcr_setup'
 
 class FilmController < ApplicationController
     def index
