@@ -14,6 +14,7 @@
     header {
         text-align: center;
     }
+
     .crawl {
         color: yellow;
         background: black url('/assets/crawl.jpg');
@@ -22,10 +23,12 @@
         padding-bottom: 1em;
 
         br { display: none; }
+
         p {
             text-align: justify;
             line-height: 1;
             font-size: 2em;
+            padding-bottom: 1em;
         }
 
         .centered-block {
@@ -41,6 +44,7 @@
     .characters {
         h2 { color: white; }
         background-color: black;
+        dl { padding-bottom: 1em; }
     }
 
     .mdl-card__supporting-text {
