@@ -30,12 +30,12 @@ class FilmControllerTest < ActionController::TestCase
 
     test "should return only characters for film" do
         VCR.use_cassette("film controller tests") do
-            get :index, :id => 1
+            get :index, :id => 4
 
             film = assigns(:film)
             characters = assigns(:characters)
 
-            assert_equal 18, characters.length
+            assert_equal 34, characters.length
             assert_equal true, characters.all? { |c| c.films.include? film.url }
         end
     end

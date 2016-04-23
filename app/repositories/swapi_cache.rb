@@ -31,7 +31,7 @@ class SwapiCache
         if @@films_cache == nil then
             res = get("films/")
 
-            @@films_cache = res.results
+            @@films_cache = res.results.map { |f| OpenStruct.new f }
 
             until res.next.blank? do
                 res = get res.next
@@ -44,9 +44,7 @@ class SwapiCache
     end
 
     def film(id)
-        films if @@films_cache == nil
-
-        films.find { |f| URI(f.url).path.split("/").last.to_i == id }
+        films.find { |f| f.url == "#{BASE_URL}films/#{id}/" }
     end
 
     def get(url)
