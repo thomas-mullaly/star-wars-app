@@ -12,33 +12,13 @@ class SwapiCache
     end
 
     def people
-        if @@people_cache == nil then
-            res = get("people/")
-
-            @@people_cache = res.results.map { |c| OpenStruct.new c }
-
-            until res.next.blank? do
-                res = get res.next
-
-                @@people_cache.concat res.results.map { |c| OpenStruct.new c }
-            end
-        end
+        @@people_cache = all "people" if @@people_cache.nil?
 
         @@people_cache
     end
 
     def films
-        if @@films_cache == nil then
-            res = get("films/")
-
-            @@films_cache = res.results.map { |f| OpenStruct.new f }
-
-            until res.next.blank? do
-                res = get res.next
-
-                @@films_cache.concat res.results.map { |f| OpenStruct.new f }
-            end
-        end
+        @@films_cache = all "films" if @@films_cache.nil?
 
         @@films_cache
     end
@@ -47,7 +27,22 @@ class SwapiCache
         films.find { |f| f.url == "#{BASE_URL}films/#{id}/" }
     end
 
+    private
     def get(url)
         JSON.parse @connection.get(url).body, object_class: OpenStruct
+    end
+
+    def all(resource)
+        response = get "#{resource}/"
+
+        result = response.results.map { |r| OpenStruct.new r }
+
+        until response.next.blank? do
+            response = get response.next
+
+            result.concat response.results.map { |r| OpenStruct.new r }
+        end
+
+        result
     end
 end
