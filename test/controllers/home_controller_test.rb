@@ -4,7 +4,7 @@ require 'swapi_cache'
 
 class HomeControllerTest < ActionController::TestCase
     def setup
-        SwapiCache.class_variable_set :@@people_cache, nil
+        clear_cache
     end
 
     test "should get index" do

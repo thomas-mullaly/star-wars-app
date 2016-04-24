@@ -2,6 +2,10 @@ require 'vcr_setup'
 require 'test_helper'
 
 class FilmControllerTest < ActionController::TestCase
+    def setup
+        clear_cache
+    end
+
     test "should get index" do
         VCR.use_cassette("film controller tests") do
             get :index, :id => 1
@@ -12,19 +16,14 @@ class FilmControllerTest < ActionController::TestCase
         end
     end
 
-    test "should set h1 to film title" do
+    test "should load correct film" do
         VCR.use_cassette("film controller tests") do
             get :index, :id => 1
 
-            assert_select "h1", "A New Hope"
-        end
-    end
+            film = assigns(:film)
 
-    test "should set opening crawl text" do
-        VCR.use_cassette("film controller tests") do
-            get :index, :id => 1
-
-            assert_select ".crawl p", 3
+            assert_equal 4, film.episode_id
+            assert_equal "A New Hope", film.title
         end
     end
 
@@ -37,6 +36,14 @@ class FilmControllerTest < ActionController::TestCase
 
             assert_equal 34, characters.length
             assert_equal true, characters.all? { |c| c.films.include? film.url }
+        end
+    end
+
+    test "should generate character card for each character" do
+        VCR.use_cassette("film controller tests") do
+            get :index, :id => 4
+
+            assert_select ".character", 34
         end
     end
 end

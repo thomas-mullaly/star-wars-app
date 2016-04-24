@@ -3,8 +3,7 @@ require 'swapi_cache'
 
 class SwapiCacheTest < ActiveSupport::TestCase
     def setup
-        SwapiCache.class_variable_set :@@people_cache, nil
-        SwapiCache.class_variable_set :@@films_cache, nil
+        clear_cache
         @cache = SwapiCache.new
     end
 
