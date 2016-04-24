@@ -3,10 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .film-details {
-    h1 {
-        margin: 0;
-        padding: .5em .5em;
-        color: white;
+    section {
+        min-height: 40em;
+        min-height: 100vh;
     }
 
     h4 { margin: 0; }
@@ -17,17 +16,24 @@
 
     .banner {
         width: 100%;
-        height: 50em;
         background: black;
 
-        img { height: 100%; width: 100%; }
+        background: black;
+        background-size: cover;
+        background-position: center;
     }
+    .banner.episode-1 { background-image: url('/assets/banners/episode-1.gif'); }
+    .banner.episode-2 { background-image: url('/assets/banners/episode-2.gif'); }
+    .banner.episode-3 { background-image: url('/assets/banners/episode-3.gif'); }
+    .banner.episode-4 { background-image: url('/assets/banners/episode-4.gif'); }
+    .banner.episode-5 { background-image: url('/assets/banners/episode-5.gif'); }
+    .banner.episode-6 { background-image: url('/assets/banners/episode-6.gif'); }
+    .banner.episode-7 { background-image: url('/assets/banners/episode-7.gif'); }
 
     .crawl {
         color: yellow;
         background: black url('/assets/crawl.jpg');
         width: 100%;
-        min-height: 30em;
         padding-bottom: 1em;
 
         br { display: none; }
@@ -41,6 +47,19 @@
 
         .centered-block {
             max-width: 440px;
+        }
+
+        p.opener {
+            color: #25B5C4;
+            padding-top: 30em;
+            padding-top: 50vh;
+            padding-bottom: 30em;
+            padding-bottom: 50vh;
+        }
+
+        p.title {
+            text-transform: uppercase;
+            text-align: center;
         }
     }
 

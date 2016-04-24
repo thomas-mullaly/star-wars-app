@@ -1,15 +1,13 @@
 <article class="film-details">
-    <section class="crawl">
-        <header>
-            <h1><%= @film.title %></h1>
-        </header>
-        <div class="centered-block">
+    <div class="crawl">
+        <section class="centered-block">
+            <p class="opener">A long time ago in a galaxy far, far away...</p>
+            <p class="title"><%= @film.title %></p>
             <%= simple_format(@film.opening_crawl) %>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <section class="banner">
-        <img src="/assets/banners/episode-<%= @film.episode_id %>.gif" />
+    <section class="banner episode-<%= @film.episode_id %>">
     </section>
 
     <section class="centered-block details">
